@@ -488,7 +488,9 @@ class EcommerceCountry_VisitorCountryProvider extends Object {
 	 * @return String (Country Code - e.g. NZ, AU, or AF)
 	 */
 	public function getCountry() {
-		return @Geoip::visitor_country();
+		if(class_exists('Geoip')){
+			return @Geoip::visitor_country();	
+		}
 	}
 
 }
